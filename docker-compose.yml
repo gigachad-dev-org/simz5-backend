@@ -1,15 +1,15 @@
 services:
   mariadb-simz:
     image: mariadb:11.5.2
-    container_name: olicem-projekt
+    container_name: simz5-dev
     restart: "no"
     environment:
       MARIADB_ROOT_PASSWORD: root
-      MARIADB_DATABASE: auth
-      MARIADB_USER: olicem_test
-      MARIADB_PASSWORD: SuperSecret1234!
+      MARIADB_DATABASE: simz-dev
+      # MARIADB_USER: olicem_test
+      # MARIADB_PASSWORD: SuperSecret1234!
     volumes:
-      - ./data:/var/lib/mariadb
+      - ./.data:/var/lib/mariadb
     ports:
       - "3306:3306"
     healthcheck:

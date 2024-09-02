@@ -46,7 +46,7 @@ audit:
 .PHONY: run_db
 run_db:
 	docker compose -f ./docker-compose.yml up -d --force-recreate
-	until [ "`docker inspect -f '{{.State.Health.Status}}' olicem-projekt`" = "healthy" ]; do sleep 1; done
+	until [ "`docker inspect -f '{{.State.Health.Status}}' simz5-dev`" = "healthy" ]; do sleep 1; done
 
 ## build: build the application
 .PHONY: build
@@ -60,7 +60,7 @@ run: build
 
 ## run_docker: build and run the application, along with a local DB in a docker container (linux and WSL only)
 .PHONY: run_all
-run_docker: build run_db run
+run_all: build run_db run
 
 # ==================================================================================== #
 # DEPLOYMENT
